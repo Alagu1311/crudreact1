@@ -1,67 +1,60 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { crtcontxt } from './App'
+import Main from './Main'
+import { Paper } from '@mui/material'
 
 
 
-function Mechcomp({mechstud,setmechstud,studId}) {
+function Mechcomp() {
+  const {mechstud,setmechstud}=useContext(crtcontxt)
     const delfunc=(studid)=>{
         let res=mechstud.filter((stud,indx)=>studid!==stud.id)
         setmechstud(res)
        }
-  const [id,setid]=useState("")
-  const [Name,setName]=useState("")
-  const [Department,setDepartment]=useState("")
-  const [Semester,setsemester]=useState("")
-  const [Cgpa,setcgpa]=useState("")
-  useEffect(()=>{
-    const finaldata=mechstud.find(stud=>stud.id===studId)
-    if(finaldata){
-    setid(finaldata.id)
-    setName(finaldata.Name)
-    setDepartment(finaldata.DepartMent)
-    setsemester(finaldata.Semester)
-    setcgpa(finaldata.Cgpa)
-    }
-
-  },[studId,mechstud])
-  const Editfunc=(studId)=>{
-    let finalres=mechstud.findIndex(stud=>stud.id==studId)
-    const arrobj={
-      id,
-     Name,
-     Department,
-     Semester,
-     Cgpa
-      
-    }
-    mechstud[finalres]=arrobj
-   setmechstud ([...mechstud,arrobj])
-   
-  }
-   
+  
  
   
   return (
     <div>
+      <>
       
+        <Main
+          title={"Rank Holders Students Info"}
+          description={""}
+        >
+          
+      </Main>
       
-        <h2 className='center'>Students Info</h2>
-    <div id='flex'>
-        {mechstud.map((arr,indx)=>(
-            <div id='border'>
+       
+        <div id='flex'>
+         
+          {mechstud.map((arr, indx) => (
+          <Paper elevation={3}>
+          <div id='border'>
+             
                 <h3>Name:{arr.Name}</h3>
-                <h3>Department:{arr.Department}</h3>
+                <h3>Department:{arr.Dep}</h3>
                 <h3>Semester:{arr.Sem}</h3>
-                <h3>CGPA:{arr.Cgpa}</h3>
+            <h3>CGPA:{arr.Cgpa}</h3>
+          
                 <div id='flex1'>
-                    <button onClick={()=>Editfunc(arr.id)}>Edit</button>
+                    <button onClick={{}}>Edit</button>
                     <button onClick={()=>delfunc(arr.id)}>Delete</button>
-                    </div>
+                </div>
+                 
+            
 
                     
-                </div>
+              </div>
+              </Paper>
+              
+              
+              
         ))}
-    </div>
-   
+            
+          </div>
+         
+   </>
  
     </div>
   )

@@ -1,35 +1,39 @@
 const Mechstudentdata=[
-    {
+     {
         id:1,
         Name:"Alagupandi",
-        Department:"Mechanical",
-        Sem:8,
-        Cgpa:9.1
-
+        Dep:"Mech",
+        Sem:"Eight",
+        Cgpa:8.2
     },
+  
     {
         id:2,
-        Name:"Ajeeth",
-        Department:"Mechanical",
-        Sem:8,
-        Cgpa:8.4
-
+        Name:"Arun",
+        Dep:"Ece",
+        Sem:"Eight",
+        Cgpa:8.6
     },
     {
-        id:1,
-        Name:"Manoj",
-        Department:"Mechanical",
-        Sem:8,
-        Cgpa:8.1
-
+        id:3,
+        Name:"Sushmitha",
+        Dep:"CSE",
+        Sem:"Eight",
+        Cgpa:8.9,
     },
     {
-        id:1,
-        Name:"Nanthakumar",
-        Department:"Mechanical",
-        Sem:8,
-        Cgpa:8.3
-
+        id:4,
+        Name:"Sudharson",
+        Dep:"Civil",
+        Sem:"Eight",
+        Cgpa:8.5
+    },
+    {
+        id:5,
+        Name:"Sudhakar",
+        Dep:"EEE",
+        Sem:"Eight",
+        Cgpa:8.6
     },
 ]
 export default Mechstudentdata;

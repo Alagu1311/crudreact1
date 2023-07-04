@@ -1,12 +1,13 @@
 
 import './App.css';
-import { useState } from 'react';
+import { createContext, useState } from 'react';
 import Mechstudentdata from './Mechdata';
 import {Route,Routes} from 'react-router-dom'
-import Main from './Main';
 import Addstud from './Addstud';
 import Mechcomp from './Mechcomp';
 import Edit from './Edit';
+import Base from './Base';
+export const crtcontxt = createContext("");
 
 
 
@@ -18,17 +19,35 @@ function App() {
   
   return (
     <div className="App">
-      
+     
+      <crtcontxt.Provider
+        value={{mechstud,setmechstud}}
+      >
       <Routes>
-        <Route exact path='/' element={<Main/>}/>
+        <Route exact path='/' element={<Base/>}/>
         <Route path='/Addstud' element={<Addstud
-        mechstud={mechstud}
-        setmechstud={setmechstud}/>}/>
+        />}/>
         <Route path='/Mechcomp' element={<Mechcomp
-        mechstud={mechstud}
-        setmechstud={setmechstud}/>}/>
-        <Route path='/Edit' element={<Edit/>}/>
-       </Routes>
+       />}/>
+          <Route path='/Edit' element={<Edit />} />
+          <Route path='/Base' element={<Base/>}/>
+        </Routes>
+        </crtcontxt.Provider>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
       
       
       
